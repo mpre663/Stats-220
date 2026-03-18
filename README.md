@@ -11,8 +11,8 @@ I'm currently studying Stats and Finance at Auckland uni, this is my second year
 
 ### Goals
 1. Get better at coding
-2. Build useful projects
-3. Understand data in real life
+2. Figure out how to use R
+3. Use goals 1 and 2 to make my life easier hopefully
 
 ### Links
 - [RStudio](https://posit.co/products/open-source/rstudio/)
