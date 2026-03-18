@@ -1,6 +1,7 @@
 # Stats-220
 Here is my Stats 220 stuff!
-#About me
+
+# About me
 I'm currently studying Stats and Finance at Auckland uni, this is my second year. I'm always down for a BBQ and a drink. 
 
 ### Topics
@@ -18,5 +19,5 @@ I'm currently studying Stats and Finance at Auckland uni, this is my second year
 - [GitHub](https://github.com/)
 - [R Project](https://www.r-project.org/)
 
-## A Fun GIF
-![fun gif](https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif)
+## A GIF
+![fun gif](https://media1.tenor.com/m/ghOkpIJe5y4AAAAC/hot-topic-rock.gif)
