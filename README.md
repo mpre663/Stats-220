@@ -4,12 +4,7 @@ Here is my Stats 220 stuff!
 # About me
 I'm currently studying Stats and Finance at Auckland uni, this is my second year. I'm always down for a BBQ and a drink. 
 
-### Topics
-- R programming
-- Data visualisation
-- Creating HTML with RMarkdown
-
-### Goals
+### Goals In This Class
 1. Get better at coding
 2. Figure out how to use R
 3. Use goals 1 and 2 to make my life easier hopefully
