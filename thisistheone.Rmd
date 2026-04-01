@@ -1,0 +1,67 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+library(tidyverse)
+
+my_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8jkQNy7udecOnL97KVYAL6c9trKni3LpPiQ7cdnT68-DbNhsejs7O8QYPS1BywAjGZ7Ba3MSMy9fB/pub?output=csv")
+
+updated_data <- my_data %>%
+  rename(
+    meal_type = 2,
+    location = 3,
+    price = 4,
+    rating = 5,
+    time = 6,
+    company = 7
+  ) %>%
+  mutate(
+    location = str_to_lower(location),
+    location = str_trim(location),
+    location = case_when(
+      location == "woolworths" ~ "grocery store",
+      TRUE ~ location
+    ),
+    location = str_to_title(location)
+  )
+
+mean_price <- mean(updated_data$price, na.rm = TRUE)
+mean_rating <- mean(updated_data$rating, na.rm = TRUE)
+home_rating <- mean(updated_data$rating[updated_data$location == "Home"], na.rm = TRUE)
+outside_rating <- mean(updated_data$rating[updated_data$location != "Home"], na.rm = TRUE)
+```
+
+My eating habits
+
+This report tracks the meals I logged and compares how they differ by cost and rating.
+The average meal cost was `r round(mean_price, 2)`, and the average meal rating was `r round(mean_rating, 2)` out of 5.
+
+
+```{r}
+updated_data %>%
+  ggplot(aes(x = meal_type, y = price)) +
+  geom_bar(stat = "summary", fun = "mean", fill = "steelblue") +
+  labs(
+    title = "Mean meal cost by meal type",
+    x = "Meal type",
+    y = "Average cost (NZD)"
+  ) +
+  theme_classic()
+```
+
+```{r}
+updated_data %>%
+  ggplot(aes(x = location, y = rating)) +
+  geom_bar(stat = "summary", fun = "mean", fill = "seagreen") +
+  labs(
+    title = "Average meal rating by location",
+    x = "Location",
+    y = "Average rating"
+  ) +
+  theme_classic()
+```
+
+The avereage meal rating was `r round(mean_rating, 2)` out of 5, and meals eaten at home had an average rating of `r round(home_rating, 2)`, while meals eaten outside had an average rating of `r round(outside_rating, 2)`.
